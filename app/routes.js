@@ -20,6 +20,30 @@ angular.module('routes', ['ui.router'])
           }
         }
       })
+      .state('vm',{
+        url:"/vm",
+        views:{
+          'content@':{
+            templateUrl: 'layout/content.html',
+            controller:'RootController'
+          }
+        },
+        resolve: {
+          checklogin: function (authService,$window,$state) {
+            authService.auth($window.localStorage.token,$window.localStorage.username).then(function(response){
+                if(!response.data.isAuthenticated){$state.go('login')}
+              },
+              function (err) {
+                console.log(err)
+                $window.localStorage.clear();
+                $state.go('login')}
+            );
+          },
+          currentuser: function (userService) {
+            return userService.currentUser()
+          }
+        }
+      })
       .state('register', {
         url: "/vm/register",
         views: {
@@ -35,6 +59,15 @@ angular.module('routes', ['ui.router'])
           'content@': {
             templateUrl: 'admin/login/login.html',
             controller: 'LoginController'
+          }
+        }
+      })
+      .state('vm.dashboard', {
+        url: "/dashboard",
+        views: {
+          'main@': {
+            templateUrl: 'admin/dashboard/dashboard.html',
+            controller: 'admin.DashboardController'
           }
         }
       })
