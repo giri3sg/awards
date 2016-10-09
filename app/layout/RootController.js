@@ -4,6 +4,7 @@
 angular.module('cms')
   .controller('RootController',function($scope, $timeout, $mdSidenav, $log){
     $scope.toggleLeft = buildDelayedToggler('left');
+    $scope.lockLeft = true;
     function debounce(func, wait, context) {
       var timer;
 
