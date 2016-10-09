@@ -1,18 +1,15 @@
-<div ng-controller="NavigationController" flex="100">
-  <div  class="md-whiteframe-6dp">
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <md-button ng-hide="hide()" class="md-icon-button" aria-label="More"  ng-click="toggleLeft()">
-          <i class="material-icons">menu</i>
-        </md-button>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="More" ng-click="logout()">
-          <i class="material-icons">exit_to_app</i>
-        </md-button>
-      </div>
-    </md-toolbar>
-  </div>
+<div layout="column" ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp" layout-fill="true">
+  <md-toolbar class="md-theme-indigo">
+    <h1 class="md-toolbar-tools">Sidenav Left</h1>
+  </md-toolbar>
 
-  <div ui-view="main@"></div>
-
+  <section layout="row" flex="">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+      <md-content layout-padding="" >
+        <md-button ng-click="close()" class="md-primary" hide-gt-md=""> Close Sidenav Left</md-button>
+        <p > This sidenav </p>
+      </md-content>
+    </md-sidenav>
+    <div ui-view="main@"></div>
+  </section>
 </div>

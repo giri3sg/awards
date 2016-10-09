@@ -40,7 +40,8 @@ angular
     }
     return service
   }]).run(['$http','$window','$rootScope','$state','authService', function($http,$window,$rootScope,$state,authService) {
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+      console.log(fromState)
       console.log(toState)
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username

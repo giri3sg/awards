@@ -2,7 +2,7 @@
  * Created by Girish on 5/24/2016.
  */
 angular.module('cms')
-  .controller('SideNavController', function($scope,currentuser){
+  .controller('SideNavController', function($scope){
     $scope.sideMenu=[]
 
     $scope.userSidenavMenu = [
@@ -17,8 +17,6 @@ angular.module('cms')
       {'label':'Assign','state':'root.chair.assign'}
     ]
 
-    if(currentuser) {
-      $scope.sideMenu = currentuser.data.roles.chair ? $scope.chairSidenavMenu : $scope.userSidenavMenu
-    }
+    $scope.sideMenu =  $scope.userSidenavMenu
   });
 

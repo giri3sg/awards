@@ -2,13 +2,13 @@
 angular.module('routes', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider,$locationProvider) {
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/404");
     $stateProvider
       .state('root',{
         url:"/",
         views: {
           'content@':{
-            templateUrl: 'layout/content.html'
+            templateUrl: 'layout/content.html',
+            controller:'RootController'
           } ,
           'sidenav@':{
             templateUrl: 'layout/sidenav.html',
@@ -21,7 +21,7 @@ angular.module('routes', ['ui.router'])
         }
       })
       .state('register', {
-        url: "/register",
+        url: "/vm/register",
         views: {
           'content@':{
             templateUrl: 'admin/register/register.html',
@@ -30,7 +30,7 @@ angular.module('routes', ['ui.router'])
         }
       })
       .state('login', {
-        url: "/login",
+        url: "/vm/login",
         views: {
           'content@': {
             templateUrl: 'admin/login/login.html',
@@ -38,17 +38,15 @@ angular.module('routes', ['ui.router'])
           }
         }
       })
-
-
-
       .state('404', {
         url: "/404",
         views: {
           'content@':{
             templateUrl: '/404.html'
           }
-        },
-        data: { requireAuth: false }
+        }
       })
 
+
+    $urlRouterProvider.otherwise("/404");
     });
