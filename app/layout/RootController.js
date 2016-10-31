@@ -2,8 +2,13 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('RootController',function($scope, $timeout, $mdSidenav, $log){
+  .controller('RootController',function($rootScope,$scope, $timeout, $mdSidenav, $log,$state,$window){
     $scope.toggleLeft = buildDelayedToggler('left');
+    $scope.logout=function () {
+      $rootScope.username = undefined;
+      $window.localStorage.clear();
+      $state.go('login')
+    }
     $scope.lockLeft = true;
     function debounce(func, wait, context) {
       var timer;

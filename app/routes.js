@@ -71,6 +71,15 @@ angular.module('routes', ['ui.router'])
           }
         }
       })
+      .state('vm.newpost', {
+        url: "/newpost",
+        views: {
+          'main@': {
+            templateUrl: 'admin/post/new-post.html',
+            controller: 'admin.NewPostController'
+          }
+        }
+      })
       .state('404', {
         url: "/404",
         views: {
