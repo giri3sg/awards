@@ -6,6 +6,7 @@
 var express    = require('express');
 var mongoose   = require('mongoose');
 var auth       = require('./api/routes/auth');
+var post       = require('./api/routes/posts');
 var config     = require('./api/config');
 var bodyParser = require('body-parser');
 var path       = require('path');
@@ -31,6 +32,10 @@ app.use(function(req, res, next) {
 app.get('/user/login', auth.login);
 app.post('/user/register', auth.register);
 app.post('/api/auth',auth.authenticate);
+
+//
+app.post('/api/post',post.createPost)
+app.get('/api/post/list',post.postList)
 
 // sending index file to handle angular routes
 app.all('/*', function(req, res) {

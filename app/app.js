@@ -46,4 +46,7 @@ angular
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username
     });
-  }]);
+  }])
+  .config(function($sceProvider) {
+    $sceProvider.enabled(false);
+  });
