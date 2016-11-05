@@ -1,29 +1,30 @@
-<div layout="column" ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp" layout-fill="true">
-  <md-toolbar class="md-theme-indigo">
-
-    <div class="md-toolbar-tools">
-      <md-button hide-gt-sm class="md-icon-button" ng-click="toggleLeft()">
-        <i class="material-icons">menu</i>
-      </md-button>
-      <h3>{{username}} {{$mdMedia('gt-sm')}}</h3>
-      <span flex></span>
-      <md-button ng-if="username" class="md-icon-button" ng-click="logout()" aria-label="More">
-        <i class="material-icons">power_settings_new</i>
-      </md-button>
-    </div>
-  </md-toolbar>
-
-  <section layout="row" flex="">
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
-      <md-content layout-padding="" >
-        <div ng-if="username">
-          <md-button ui-sref="root" class="md-primary">Show Website</md-button>
-          <br>
-          <md-button ui-sref="vm.dashboard" class="md-primary">Dashboard</md-button>
-        </div>
-        <p> This sidenav </p>
-      </md-content>
-    </md-sidenav>
-    <div ui-view="main@" layout-fill=""></div>
-  </section>
-</div>
+<section layout="row" flex="" layout-fill="true">
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Awards</h1>
+    </md-toolbar>
+    <md-content layout-padding="" >
+      <div ng-if="username" layout="column" layout-align="center center">
+        <div><md-button ui-sref="root" class="md-primary">Show Website</md-button></div>
+        <div><md-button ui-sref="vm.dashboard" class="md-primary">Dashboard</md-button></div>
+      </div>
+    </md-content>
+  </md-sidenav>
+  <div layout="column" flex>
+    <md-toolbar class="md-theme-indigo">
+      <div class="md-toolbar-tools">
+        <md-button hide-gt-sm class="md-icon-button" ng-click="toggleLeft()">
+          <i class="material-icons">menu</i>
+        </md-button>
+        <h3>{{username}} {{$mdMedia('gt-sm')}}</h3>
+        <span flex></span>
+        <md-button ng-if="username" class="md-icon-button" ng-click="logout()" aria-label="More">
+          <i class="material-icons">power_settings_new</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <div ui-view="main@"></div>
+    </md-content>
+  </div>
+</section>

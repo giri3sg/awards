@@ -10,3 +10,6 @@
 .login-container label{
   font-weight: normal !important;
 }
+.md-sidenav-left{
+  max-width:200px;
+}

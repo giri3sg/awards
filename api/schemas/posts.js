@@ -11,6 +11,7 @@ var postSchema = new Schema(
     body: String,
     description: String,
     creation_date: String,
+    embed:String,
     tags: [
       String
     ]

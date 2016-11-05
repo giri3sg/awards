@@ -6,16 +6,15 @@
         <label>Title</label>
         <input required md-no-asterisk name="title" ng-model="post.title">
         <div ng-messages="projectForm.title.$error">
-          <div ng-message="required">This is required.</div>
+          <div ng-message="required">Idiot!! you forgot Title.</div>
         </div>
       </md-input-container>
 
-      <md-input-container class="md-block">
         <label>Description</label>
-        <textarea required md-no-asterisk name="description" ng-model="post.description" rows="5" md-select-on-focus></textarea>
-        <div ng-messages="projectForm.description.$error">
-          <div ng-message="required">This is required.</div>
-        </div>
+
+      <md-input-container class="md-block">
+        <label>Embed code</label>
+        <textarea name="description" ng-model="post.description" rows="5" md-select-on-focus></textarea>
       </md-input-container>
 
       <md-input-container>

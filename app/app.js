@@ -19,7 +19,8 @@ angular
     'ngRoute',
     'routes',
     'ui.bootstrap',
-    'ngMd5'
+    'ngMd5',
+    'ngMessages'
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')
@@ -41,8 +42,6 @@ angular
     return service
   }]).run(['$http','$window','$rootScope','$state','authService', function($http,$window,$rootScope,$state,authService) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-      console.log(fromState)
-      console.log(toState)
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username
     });

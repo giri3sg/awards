@@ -8,17 +8,15 @@ angular.module('cms')
     $scope.addPost=function (post) {
       var d = new Date();
       var n = d.toISOString();
-      console.log(n)
       post.creation_date=n
       console.log(post)
-
       var req = {
         method: 'post',
         url: "/api/post",
         data: post
       };
-      // Send it
-      $http(req).then(function(response) { // Success callback
+
+      $http(req).then(function(response) {
         console.log(response)
       })
       $http.get('/api/post/list').then(function (response) {
