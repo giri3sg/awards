@@ -2,11 +2,18 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('HomeController',function($scope,$http){
+  .controller('HomeController',["$scope","$http","PostsService",function($scope,$http,PostsService){
     console.log("inside home controller");
-    $http.get('/api/post/list').then(function (response) {
-      console.log(response)
-      $scope.posts = response.data 
+    generatePostUrl = function (posts) {
+      posts.forEach(function (post) {
+        post.urlTitle = post.title.replace(/ /g,"-")
+      })
+    }
+    PostsService.getRecentPosts().then(function (response) {
+      $scope.posts = response
+      PostsService.recentPosts = response
+      generatePostUrl($scope.posts)
     })
-  });
+
+  }]);
 

@@ -75,7 +75,7 @@ angular.module('routes', ['ui.router'])
         url: "/newpost",
         views: {
           'main@': {
-            templateUrl: 'admin/post/new-post.html',
+            templateUrl: 'admin/newpost/new-post.html',
             controller: 'admin.NewPostController'
           }
         }
@@ -88,6 +88,16 @@ angular.module('routes', ['ui.router'])
           }
         }
       })
+      .state('root.post', {
+        url: "post/:title?:id",
+        views: {
+          'main@':{
+            templateUrl: '/post/post.html',
+            controller: 'PostController'
+          }
+        }
+      })
+
 
 
     $urlRouterProvider.otherwise("/404");

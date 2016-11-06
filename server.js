@@ -33,8 +33,9 @@ app.get('/user/login', auth.login);
 app.post('/user/register', auth.register);
 app.post('/api/auth',auth.authenticate);
 
-//
+//posts
 app.post('/api/post',post.createPost)
+app.get('/api/post',post.getPost)
 app.get('/api/post/list',post.postList)
 
 // sending index file to handle angular routes
