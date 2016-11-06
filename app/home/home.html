@@ -7,14 +7,10 @@
   <h2>Recent Videos</h2>
   <md-card ng-repeat="post in posts | orderBy:'-creation_date'">
     <div >
-      {{post._id}}
-      <h2>{{post.title}}</h2>
+      <h3>{{post.title}}</h3>
+      {{post.creation_date | date:'medium'}}
       <br/>
-
-      {{post.creation_date}}
-      <br/>
-      <div ng-bind-html="post.description"></div>
-      <div ng-bind-html="post.embed"></div>
+      {{post.categories}}
       <br/>
     </div>
   </md-card>

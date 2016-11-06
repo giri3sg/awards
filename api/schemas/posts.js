@@ -14,6 +14,9 @@ var postSchema = new Schema(
     embed:String,
     tags: [
       String
+    ],
+    categories: [
+      String
     ]
   }
 );

@@ -20,7 +20,8 @@ angular
     'routes',
     'ui.bootstrap',
     'ngMd5',
-    'ngMessages'
+    'ngMessages',
+    'ui.tinymce'
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')

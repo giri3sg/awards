@@ -10,16 +10,17 @@
         </div>
       </md-input-container>
 
-        <label>Description</label>
-
+      <label>Description</label>
       <md-input-container class="md-block">
-        <label>Embed code</label>
-        <textarea name="description" ng-model="post.description" rows="5" md-select-on-focus></textarea>
+        <label></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="post.description"></textarea>
       </md-input-container>
+      <md-chips ng-model="categories"
+                placeholder="Enter a Keyword" md-removable="true"
+                md-enable-chip-edit="true">
 
-      <md-input-container>
-        <md-button ng-click="addPost(post)">Post</md-button>
-      </md-input-container>
+      </md-chips>
+      <md-button class="md-raised md-primary" ng-click="addPost(post)">Post</md-button>
     </form>
   </md-content>
 </div>
