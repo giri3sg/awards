@@ -12,12 +12,8 @@ var postSchema = new Schema(
     description: String,
     creation_date: String,
     embed:String,
-    tags: [
-      String
-    ],
-    categories: [
-      String
-    ]
+    tags: [String],
+    categories: [String]
   }
 );
 

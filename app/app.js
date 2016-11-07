@@ -50,3 +50,4 @@ angular
   .config(function($sceProvider) {
     $sceProvider.enabled(false);
   });
+angular.module('routes', ['ui.router']);

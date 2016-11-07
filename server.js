@@ -37,6 +37,7 @@ app.post('/api/auth',auth.authenticate);
 app.post('/api/post',post.createPost)
 app.get('/api/post',post.getPost)
 app.get('/api/post/list',post.postList)
+app.get('/api/category/posts',post.postListByCategory)
 
 // sending index file to handle angular routes
 app.all('/*', function(req, res) {

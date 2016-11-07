@@ -3,9 +3,11 @@
     <div>
       <h3>{{post.title}}
         <small>
-          <section layout="row" layout-sm="column" class="categories">
+          <section layout="column" layout-gt-xs="row" class="categories">
             <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
-            <span  ng-repeat="category in post.categories" class="label label-primary">{{category}}</span>
+            <span  ng-repeat="category in post.categories" class="label label-primary">
+             <a ui-sref="root.category({category:category})">{{category}}</a>
+            </span>
           </section>
         </small>
       </h3>

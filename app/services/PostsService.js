@@ -9,6 +9,11 @@ angular.module('cms')
         return response.data
       })
     };
+    service.getCategoryPosts = function (category) {
+      return $http.get('/api/category/posts',{params:{category:category}}).then(function (response) {
+        return response.data
+      })
+    };
     service.recentPosts = []
     
     service.getPostByTitle = function (title) {
