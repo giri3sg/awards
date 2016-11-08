@@ -21,6 +21,12 @@ module.exports.postListByCategory = function (req,res) {
     res.send(result)
   })
 }
+module.exports.postListByTag = function (req,res) {
+  var conditions = {tags: req.query.tag};
+  Post.find(conditions,function (err,result) {
+    res.send(result)
+  })
+}
 module.exports.getPost = function (req,res) {
   var conditions = {_id: req.query.id};
   Post.findOne(conditions,function (err,result) {

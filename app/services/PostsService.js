@@ -14,6 +14,11 @@ angular.module('cms')
         return response.data
       })
     };
+    service.getTagPosts = function (tag) {
+      return $http.get('/api/tag/posts',{params:{tag:tag}}).then(function (response) {
+        return response.data
+      })
+    };
     service.recentPosts = []
     
     service.getPostByTitle = function (title) {

@@ -16,14 +16,13 @@ angular.module('cms')
       image_advtab: true,
       min_height: 300
     };
-    $scope.categories=[]
+    $scope.tags=[]
 
     $scope.addPost=function (post) {
       var d = new Date();
       var n = d.toISOString();
       post.creation_date=n
-      post.categories = $scope.categories
-      console.log(post)
+      post.tags = $scope.tags
       var req = {
         method: 'post',
         url: "/api/post",

@@ -15,10 +15,9 @@
         <label></label>
         <textarea ui-tinymce="tinymceOptions" ng-model="post.description"></textarea>
       </md-input-container>
-      <md-chips ng-model="categories"
-                placeholder="Enter a Keyword" md-removable="true"
+      <md-chips ng-model="tags"
+                placeholder="Enter a tag" md-removable="true"
                 md-enable-chip-edit="true">
-
       </md-chips>
       <md-button class="md-raised md-primary" ng-click="addPost(post)">Post</md-button>
     </form>

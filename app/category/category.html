@@ -9,10 +9,10 @@
     <div >
       <h3><a ui-sref="root.post({title: post.urlTitle,id:post._id})">{{post.title}}</a>
         <small>
-          <section layout="column" layout-gt-xs="row"  class="categories">
+          <section layout="row" layout-xs="column"  class="tags">
             <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
-            <span  ng-repeat="category in post.categories" class="label label-success">
-              <a ui-sref="root.category({category:category})">{{category}}</a>
+             <span  ng-repeat="tag in post.tags" class="label label-primary">
+               <a ui-sref="root.tag({tag:tag})">{{tag}}</a>
             </span>
           </section>
         </small>

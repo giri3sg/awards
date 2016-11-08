@@ -46,6 +46,15 @@ angular.module('routes')
           }
         }
       })
+      .state('root.tag', {
+        url: "tag/:tag",
+        views: {
+          'main@':{
+            templateUrl: '/tag/tag.html',
+            controller: 'TagController'
+          }
+        }
+      })
 
 
 

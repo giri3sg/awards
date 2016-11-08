@@ -39,6 +39,7 @@ app.post('/api/post',post.createPost)
 app.get('/api/post',post.getPost)
 app.get('/api/post/list',post.postList)
 app.get('/api/category/posts',post.postListByCategory)
+app.get('/api/tag/posts',post.postListByTag)
 
 //settings
 app.post('/api/settings/categories',settings.create);
