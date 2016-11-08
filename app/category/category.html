@@ -4,7 +4,7 @@
 
     </div>
   </div>
-  <h2>Recent Posts</h2>
+  <h2>Category "{{category}}"</h2>
   <md-card ng-repeat="post in posts | orderBy:'-creation_date'" >
     <div >
       <h3><a ui-sref="root.post({title: post.urlTitle,id:post._id})">{{post.title}}</a>

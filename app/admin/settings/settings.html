@@ -1,0 +1,51 @@
+<div class="md-input-no-margin">
+  <md-content layout="row" layout-align="center center">
+    <md-card>
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control"  placeholder="New Category" ng-model="newCategory">
+            <div class="input-group-addon md-primary"  md-ink-ripple class="md-clickable" ng-click="add(newCategory)" >+</div>
+          </div>
+        </div>
+      </form>
+    </md-card>
+  </md-content>
+  <div layout="row" layout-xs="column" layout-padding="" layout-wrap="" ng-init="localScope={}">
+    {{categories}}
+    <md-card ng-repeat="category in categories" flex-gt-xs="45" flex-xs="100" flex="none" ng-init="localScope.cindex=$index">
+      <div>
+        <md-content md-theme="docs-dark" layout="row" layout-align="space-between" layout-padding="">
+          <md-input-container class="md-block" flex="">
+            <label></label>
+            <input name="Category" ng-model="category.name" >
+           </md-input-container>
+          <div class="pull-right"><i class="material-icons">clear</i></div>
+        </md-content>
+
+        <md-divider></md-divider>
+        <br>
+          <md-input-container ng-repeat="subcat in category.subcat" flex class="md-block">
+            <label></label>
+            <input name="Category" ng-model="subcat" ng-blur="updateSub(subcat,category.subcat,$index)">
+          </md-input-container>
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control"  placeholder="Sub Category" ng-model="newSub">
+                <div class="input-group-addon md-primary"  md-ink-ripple class="md-clickable" ng-click="addSub(category,newSub)" >+</div>
+              </div>
+            </div>
+          </form>
+
+      </div>
+    </md-card>
+  </div>
+  <div>
+    <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+      <md-button class="md-fab md-primary" ng-click="save(categories)" aria-label="Save">
+        <md-tooltip md-direction="top">Save</md-tooltip>
+        <i class="fa fa-lg fa-save"></i>
+      </md-button>
+  </div>
+</div>

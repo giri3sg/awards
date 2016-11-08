@@ -20,10 +20,10 @@ angular.module('routes')
           }
         }
       })
-      .state('404', {
-        url: "/404",
+      .state('root.404', {
+        url: "404",
         views: {
-          'content@':{
+          'main@':{
             templateUrl: '/404.html'
           }
         }

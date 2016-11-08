@@ -25,6 +25,11 @@ angular.module('cms')
       })
     }
     
+    service.getSettings = function () {
+      return $http.get("/api/settings/categories").then(function (response) {
+        return response.data
+      })
+    }
     return service
   });
 
