@@ -7,10 +7,8 @@ angular.module('cms')
     console.log("inside settings controller")
 
     $scope.categories= settings.categories?settings.categories:[]
-    console.log($scope.categories)
     $scope.add = function (name) {
       $scope.categories.push({"name":name})
-      console.log($scope.categories)
     };   
     $scope.addSub = function (category,subCat) {
       if(category.subcat == undefined)
@@ -19,15 +17,16 @@ angular.module('cms')
     };
 
     $scope.save = function (categories) {
-      console.log(categories)
       $http.post("/api/settings/categories",{"categories":categories}).then(function(response){
-        console.log(response)
       })
     }
     $scope.updateSub = function (name,subs,index) {
       subs[index] = name
-      console.log(index)
-      console.log(subs)
     }
-
+    $scope.removeSub = function (index,cindex) {
+      $scope.categories[cindex].subcat.splice(index,1)
+    }
+    $scope.removeCat = function (index) {
+      $scope.categories.splice(index,1)
+    }
   }]);

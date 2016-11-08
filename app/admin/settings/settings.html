@@ -11,24 +11,26 @@
       </form>
     </md-card>
   </md-content>
-  <div layout="row" layout-xs="column" layout-padding="" layout-wrap="" ng-init="localScope={}">
-    {{categories}}
-    <md-card ng-repeat="category in categories" flex-gt-xs="45" flex-xs="100" flex="none" ng-init="localScope.cindex=$index">
+  <div layout="row" layout-xs="column" layout-padding="" layout-wrap="">
+    <md-card ng-repeat="category in categories" flex-gt-xs="45" flex-xs="100">
       <div>
         <md-content md-theme="docs-dark" layout="row" layout-align="space-between" layout-padding="">
           <md-input-container class="md-block" flex="">
             <label></label>
             <input name="Category" ng-model="category.name" >
            </md-input-container>
-          <div class="pull-right"><i class="material-icons">clear</i></div>
+          <div ng-click="removeCat($index)"><i class="material-icons">clear</i></div>
         </md-content>
 
         <md-divider></md-divider>
         <br>
-          <md-input-container ng-repeat="subcat in category.subcat" flex class="md-block">
+        <md-content ng-repeat="subcat in category.subcat track by $index" layout="row" layout-align="space-between">
+          <md-input-container flex class="md-block">
             <label></label>
             <input name="Category" ng-model="subcat" ng-blur="updateSub(subcat,category.subcat,$index)">
           </md-input-container>
+          <div ng-click="removeSub($index,$parent.$index)" ><i md-ink-ripple="" class="material-icons">clear</i></div>
+        </md-content>
           <form class="form-inline">
             <div class="form-group">
               <div class="input-group">
