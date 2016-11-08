@@ -62,4 +62,18 @@ angular.module('routes')
           }
         }
       })
+      .state('vm.settings', {
+        url: "/settings",
+        views: {
+          'main@': {
+            templateUrl: 'admin/settings/settings.html',
+            controller: 'admin.SettingsController'
+          }
+        },
+        resolve:{
+          settings: function (PostsService){
+            return PostsService.getSettings()
+          }
+        }
+      })
     });

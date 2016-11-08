@@ -26,3 +26,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.md-input-no-margin md-input-container{
+  margin-top:0;
+  margin-bottom:0;
+
+}

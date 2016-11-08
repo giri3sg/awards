@@ -49,5 +49,11 @@ angular
   }])
   .config(function($sceProvider) {
     $sceProvider.enabled(false);
+  })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('docs-dark', 'default')
+      .primaryPalette('yellow')
+      .dark();
+
   });
 angular.module('routes', ['ui.router']);

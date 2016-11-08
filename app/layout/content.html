@@ -3,24 +3,38 @@
     <md-toolbar class="md-theme-indigo">
       <h1 class="md-toolbar-tools">Awards</h1>
     </md-toolbar>
-    <md-content layout-padding="" >
-      <div ng-if="username" layout="column" layout-align="center center">
-        <div><md-button ui-sref="root" class="md-primary">Show Website</md-button></div>
-        <div><md-button ui-sref="vm.dashboard" class="md-primary">Dashboard</md-button></div>
-      </div>
+
+    <md-content>
+      <md-list flex>
+        <md-list-item ui-sref="root" md-ink-ripple class="md-clickable" >
+          <div  align="center">Home</div>
+        </md-list-item>
+        <md-list-item  ng-if="username" ui-sref="vm.dashboard"  md-ink-ripple class="md-clickable" >
+          <div   align="center">Dashboard</div>
+        </md-list-item>
+        <md-list-item  ng-if="username" ui-sref="vm.settings"  md-ink-ripple class="md-clickable" >
+          <div   align="center">Settings</div>
+        </md-list-item>
+      </md-list>
     </md-content>
+    <!--    <md-content layout="column" layout-align="center center">
+      <md-button ui-sref="root" class="md-primary">Home</md-button>
+      <md-button  ng-if="username" ui-sref="vm.dashboard" class="md-primary">Dashboard</md-button>
+    </md-content>
+    -->
   </md-sidenav>
   <div layout="column" flex>
-    <md-toolbar class="md-theme-indigo">
+    <md-toolbar>
       <div class="md-toolbar-tools">
         <md-button hide-gt-sm class="md-icon-button" ng-click="toggleLeft()">
           <i class="material-icons">menu</i>
         </md-button>
-        <h3>{{username}} {{$mdMedia('gt-sm')}}</h3>
+        <h3>{{username}}</h3>
         <span flex></span>
-        <md-button ng-if="username" class="md-icon-button" ng-click="logout()" aria-label="More">
-          <i class="material-icons">power_settings_new</i>
-        </md-button>
+        <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i class="fa fa-google-plus" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i ng-if="username"  ng-click="logout()" class="material-icons">power_settings_new</i>
       </div>
     </md-toolbar>
     <md-content>
