@@ -6,7 +6,6 @@ angular.module('cms')
 
     $scope.category = $stateParams.category
     PostsService.getCategoryPosts($stateParams.category).then(function (response) {
-      console.log(response)
       $scope.posts = response
     })
 
