@@ -10,9 +10,10 @@
           <div  align="center">{{item.name}}</div>
         </md-list-item>
       </md-list>
-      <md-menu md-offset="0 -7" ng-repeat="category in categories">
-        <md-list-item aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
-          {{category.name}}
+      <md-menu md-position-mode="target-right target" ng-repeat="category in categories">
+        <md-list-item aria-label="Open demo menu" >
+          <div ui-sref="root.category({category:category.name})" md-ink-ripple class="md-clickable" flex="">{{category.name}}</div>
+          <div  ng-click="$mdOpenMenu($event)"><i class="material-icons">chevron_right</i></div>
         </md-list-item>
         <md-menu-content width="2">
           <md-menu-item ng-repeat="sub in category.subcat">
