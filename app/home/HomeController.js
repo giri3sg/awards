@@ -3,7 +3,7 @@
  */
 angular.module('cms')
   .controller('HomeController',["$scope","$http","PostsService",function($scope,$http,PostsService){
-    console.log("inside home controller");
+
     generatePostUrl = function (posts) {
       posts.forEach(function (post) {
         post.urlTitle = post.title.replace(/ /g,"-")

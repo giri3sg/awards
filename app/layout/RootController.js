@@ -2,17 +2,32 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('RootController',function($rootScope,$scope, $timeout, $mdSidenav, $log,$state,$window){
+  .controller('RootController',function($rootScope,$scope, $timeout, $mdSidenav,$state,$window,MenuService,PostsService){
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.logout=function () {
       $rootScope.username = undefined;
       $window.localStorage.clear();
       $state.go('login')
     }
-    $scope.lockLeft = true;
+
+    $scope.close = function () {
+      $mdSidenav('left').close()
+        .then(function () {
+        });
+
+    };
+
+
+    $scope.publicMenu = MenuService.publicMenu
+
+    $scope.adminMenu = MenuService.adminMenu
+
+    PostsService.getSettings().then(function (response) {
+      $scope.categories = response.categories
+    })
+
     function debounce(func, wait, context) {
       var timer;
-
       return function debounced() {
         var context = $scope,
           args = Array.prototype.slice.call(arguments);
@@ -28,26 +43,8 @@ angular.module('cms')
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug("toggle " + navID + " is done");
           });
       }, 200);
     }
-    function buildToggler(navID) {
-      return function() {
-        // Component lookup should always be available since we are not using `ng-if`
-        $mdSidenav(navID)
-          .toggle()
-          .then(function () {
-            $log.debug("toggle " + navID + " is done");
-          });
-      }
-    }
-    $scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
-
-    };
   });
 

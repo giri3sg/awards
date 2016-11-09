@@ -4,7 +4,6 @@
 
 angular.module('cms')
   .controller('admin.NewPostController',function ($scope,$http) {
-    console.log("inside new post controller")
     $scope.tinymceOptions = {
       theme: "modern",
       plugins: [

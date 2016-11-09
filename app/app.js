@@ -25,13 +25,13 @@ angular
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')
-  }).service('authService',['$http','$q',function($http,$q) {
+  }).service('authService',['$http','$window',function($http,$window) {
     var service = {}
-    service.auth = function (token,name) {
-      return $http.post('/api/auth',{username:name})
+    service.auth = function () {
+      return $http.post('/api/auth',{username:$window.localStorage.username})
     }
     return service
-  }]).service('userService',['$http','$window','$rootScope','authService',function($http,$window,$rootScope,authService) {
+  }]).service('userService',['$http','$window',function($http,$window) {
     var service = {}
     service.currentUser = function () {
       if ($window.localStorage.token && $window.localStorage.username){
@@ -41,10 +41,14 @@ angular
       else { console.log("something is wrong ")}
     }
     return service
-  }]).run(['$http','$window','$rootScope','$state','authService', function($http,$window,$rootScope,$state,authService) {
+  }]).run(['$http','$window','$rootScope','authService', function($http,$window,$rootScope,authService) {
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username
+      authService.auth().then(function(response){
+        $rootScope.isAuthenticated = response.data.isAuthenticated
+      })
     });
   }])
   .config(function($sceProvider) {

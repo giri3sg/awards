@@ -3,7 +3,7 @@
  */
 angular.module('cms')
   .controller('RegistrationController',function($scope,$http,md5){
-    console.log("inside register controller");
+    
     $scope.validate = function (user) {
       if(!user){return true}
       if(!user.username){return true}

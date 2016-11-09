@@ -6,22 +6,29 @@
 
     <md-content>
       <md-list flex>
-        <md-list-item ui-sref="root" md-ink-ripple class="md-clickable" >
-          <div  align="center">Home</div>
+        <md-list-item ng-repeat="item in publicMenu" ui-sref="{{item.link}}" md-ink-ripple class="md-clickable" >
+          <div  align="center">{{item.name}}</div>
         </md-list-item>
-        <md-list-item  ng-if="username" ui-sref="vm.dashboard"  md-ink-ripple class="md-clickable" >
-          <div   align="center">Dashboard</div>
+      </md-list>
+      <md-menu md-offset="0 -7" ng-repeat="category in categories">
+        <md-list-item aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
+          {{category.name}}
         </md-list-item>
-        <md-list-item  ng-if="username" ui-sref="vm.settings"  md-ink-ripple class="md-clickable" >
-          <div   align="center">Settings</div>
+        <md-menu-content width="2">
+          <md-menu-item ng-repeat="sub in category.subcat">
+            <md-button ui-sref="root.category({category:sub})">
+              <span md-menu-align-target>
+              </span> {{sub}} </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-divider></md-divider>
+      <md-list flex>
+        <md-list-item ng-repeat="item in adminMenu" ui-sref="{{item.link}}" md-ink-ripple class="md-clickable" >
+          <div  align="center">{{item.name}}</div>
         </md-list-item>
       </md-list>
     </md-content>
-    <!--    <md-content layout="column" layout-align="center center">
-      <md-button ui-sref="root" class="md-primary">Home</md-button>
-      <md-button  ng-if="username" ui-sref="vm.dashboard" class="md-primary">Dashboard</md-button>
-    </md-content>
-    -->
   </md-sidenav>
   <div layout="column" flex>
     <md-toolbar>

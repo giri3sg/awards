@@ -4,7 +4,6 @@
 
 angular.module('cms')
   .controller('admin.SettingsController',["$scope","$http","settings",function ($scope,$http,settings) {
-    console.log("inside settings controller")
 
     $scope.categories= settings.categories?settings.categories:[]
     $scope.add = function (name) {

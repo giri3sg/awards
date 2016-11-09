@@ -11,8 +11,9 @@ angular.module('routes')
           }
         },
         resolve: {
-          checklogin: function (authService,$window,$state) {
-            authService.auth($window.localStorage.token,$window.localStorage.username).then(function(response){
+          checklogin: function (authService,$state,$rootScope) {
+            authService.auth().then(function(response){
+                $rootScope.isAuthenticated = response.data.isAuthenticated
                 if(!response.data.isAuthenticated){$state.go('login')}
               },
               function (err) {
