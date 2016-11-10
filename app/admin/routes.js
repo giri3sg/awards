@@ -24,6 +24,11 @@ angular.module('routes')
           },
           currentuser: function (userService) {
             return userService.currentUser()
+          },
+          categories:  function (PostsService) {
+            return PostsService.getSettings().then(function (response) {
+              return response.categories
+            })
           }
         }
       })

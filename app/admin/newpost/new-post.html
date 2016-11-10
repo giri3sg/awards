@@ -9,17 +9,35 @@
           <div ng-message="required">Idiot!! you forgot Title.</div>
         </div>
       </md-input-container>
-
       <label>Description</label>
       <md-input-container class="md-block">
         <label></label>
         <textarea ui-tinymce="tinymceOptions" ng-model="post.description"></textarea>
       </md-input-container>
-      <md-chips ng-model="tags"
-                placeholder="Enter a tag" md-removable="true"
-                md-enable-chip-edit="true">
-      </md-chips>
-      <md-button class="md-raised md-primary" ng-click="addPost(post)">Post</md-button>
+      <md-card-content>
+        <md-card-title>Tags</md-card-title>
+        <md-chips ng-model="tags"
+                  placeholder="Type a tag and press enter" md-removable="true"
+                  md-enable-chip-edit="true">
+        </md-chips>
+      </md-card-content>
+      <br>
+      <md-card-content>
+        <md-card-title>Categories</md-card-title>
+        <div layout="row" >
+          <div  flex="50">
+            <md-select ng-model="cat" placeholder="Select Category">
+              <md-option ng-value="category" ng-repeat="category in categories track by $index">{{category.name}}</md-option>
+            </md-select>
+          </div>
+          <div flex="50" ng-show="cat">
+            <md-select ng-model="selectedSub" placeholder="Select Sub Category[optional]">
+              <md-option ng-value="s" ng-repeat="s in cat.subcat track by $index">{{s}}</md-option>
+            </md-select>
+          </div>
+        </div>
+      </md-card-content>
+      <md-button class="md-raised md-primary" ng-click="addPost(post,cat.name,selectedSub)">Post</md-button>
     </form>
   </md-content>
 </div>

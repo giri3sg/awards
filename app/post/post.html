@@ -1,18 +1,21 @@
-<md-content flex="" layout-padding="">
+<md-content flex="">
   <md-card>
     <div>
-      <h3>{{post.title}}
-        <small>
-          <section layout="row" layout-xs="column"  class="tags">
-            <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
-            <span  ng-repeat="tag in post.tags" class="label label-primary">
-             <a ui-sref="root.tag({tag:tag})">{{tag}}</a>
-            </span>
-          </section>
-        </small>
-      </h3>
-      <br/>
-      <div ng-bind-html="post.description"></div>
+      <md-toolbar layout="row" layout-align="center center">
+        <div >
+          <span>{{post.title}} <small><span class="label label-default">{{post.creation_date | date:'medium'}}</span></small>
+          </span>
+        </div>
+      </md-toolbar>
+
+      <md-content flex layout-padding>
+        <div ng-bind-html="post.description"></div>
+        <md-divider></md-divider>
+        <div layout="row" layout-align="center center">
+          Tags:
+          <md-button  class="md-raised" ng-repeat="tag in post.tags" ui-sref="root.tag({tag:tag})" class="md-default">{{tag}}</md-button>
+        </div>
+      </md-content>
     </div>
   </md-card>
 </md-content>

@@ -3,7 +3,7 @@
  */
 
 angular.module('cms')
-  .controller('admin.NewPostController',function ($scope,$http) {
+  .controller('admin.NewPostController',function ($scope,$http,categories) {
     $scope.tinymceOptions = {
       theme: "modern",
       plugins: [
@@ -16,11 +16,14 @@ angular.module('cms')
       min_height: 300
     };
     $scope.tags=[]
+    $scope.categories = categories
 
-    $scope.addPost=function (post) {
+    $scope.addPost=function (post,cat,subcat) {
+      post.categories = []
+      post.categories.push(cat)
+      post.categories.push(subcat)
       var d = new Date();
-      var n = d.toISOString();
-      post.creation_date=n
+      post.creation_date=d.toISOString();
       post.tags = $scope.tags
       var req = {
         method: 'post',

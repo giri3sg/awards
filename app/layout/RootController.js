@@ -2,7 +2,7 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('RootController',function($rootScope,$scope, $timeout, $mdSidenav,$state,$window,MenuService,PostsService){
+  .controller('RootController',function($rootScope,$scope, $timeout, $mdSidenav,$state,$window,MenuService,categories){
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.logout=function () {
       $rootScope.username = undefined;
@@ -22,9 +22,8 @@ angular.module('cms')
 
     $scope.adminMenu = MenuService.adminMenu
 
-    PostsService.getSettings().then(function (response) {
-      $scope.categories = response.categories
-    })
+
+    $scope.categories = categories
 
     function debounce(func, wait, context) {
       var timer;

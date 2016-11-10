@@ -18,6 +18,13 @@ angular.module('routes')
             templateUrl: 'home/home.html',
             controller: 'HomeController'
           }
+        },
+        resolve:{
+          categories:  function (PostsService) {
+            return PostsService.getSettings().then(function (response) {
+              return response.categories
+            })
+          }
         }
       })
       .state('root.404', {
