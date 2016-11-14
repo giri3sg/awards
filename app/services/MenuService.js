@@ -14,11 +14,19 @@ angular.module('cms')
     service.adminMenu = [
       {
         "name" :"Dashboard",
-        "link" :"vm.dashboard"
+        "link" :"root.vm.dashboard"
       },
       {
         "name" :"Settings",
-        "link" :"vm.settings"
+        "link" :"root.vm.settings"
+      },
+      {
+        "name" :"Ads",
+        "link" :"root.vm.ads"
+      },
+      {
+        "name" :"New Post",
+        "link" :"root.vm.newpost"
       }
     ];
     service.getMenu = function () {

@@ -2,14 +2,8 @@
 angular.module('routes')
   .config(function($stateProvider, $urlRouterProvider,$locationProvider) {
     $stateProvider
-      .state('vm',{
-        url:"/vm",
-        views:{
-          'content@':{
-            templateUrl: 'layout/content.html',
-            controller:'RootController'
-          }
-        },
+      .state('root.vm',{
+        url:"vm",
         resolve: {
           checklogin: function (authService,$state,$rootScope) {
             authService.auth().then(function(response){
@@ -25,10 +19,8 @@ angular.module('routes')
           currentuser: function (userService) {
             return userService.currentUser()
           },
-          categories:  function (PostsService) {
-            return PostsService.getSettings().then(function (response) {
-              return response.categories
-            })
+          settings: function (PostsService){
+            return PostsService.getSettings()
           }
         }
       })
@@ -50,7 +42,7 @@ angular.module('routes')
           }
         }
       })
-      .state('vm.dashboard', {
+      .state('root.vm.dashboard', {
         url: "/dashboard",
         views: {
           'main@': {
@@ -59,7 +51,7 @@ angular.module('routes')
           }
         }
       })
-      .state('vm.newpost', {
+      .state('root.vm.newpost', {
         url: "/newpost",
         views: {
           'main@': {
@@ -68,17 +60,21 @@ angular.module('routes')
           }
         }
       })
-      .state('vm.settings', {
+      .state('root.vm.settings', {
         url: "/settings",
         views: {
           'main@': {
             templateUrl: 'admin/settings/settings.html',
             controller: 'admin.SettingsController'
           }
-        },
-        resolve:{
-          settings: function (PostsService){
-            return PostsService.getSettings()
+        }
+      })
+      .state('root.vm.ads', {
+        url: "/ads",
+        views: {
+          'main@': {
+            templateUrl: 'admin/ads/ads.html',
+            controller: 'admin.AdsController'
           }
         }
       })
