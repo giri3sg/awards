@@ -13,7 +13,10 @@ var postSchema = new Schema(
     creation_date: String,
     embed:String,
     tags: [String],
-    categories: [String]
+    categories: {
+      cat:String,
+      subcat:String
+    }
   }
 );
 

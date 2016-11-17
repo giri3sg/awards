@@ -16,7 +16,9 @@ module.exports.postList = function (req,res) {
   })
 }
 module.exports.postListByCategory = function (req,res) {
-  var conditions = {categories: req.query.category};
+  var conditions = {'categories.cat': req.query.cat};
+  if(req.query.subcat != undefined)
+    conditions =  { $and: [{'categories.cat': req.query.cat},{'categories.subcat': req.query.subcat}]};
   Post.find(conditions,function (err,result) {
     res.send(result)
   })
