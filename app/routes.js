@@ -45,7 +45,16 @@ angular.module('routes')
         }
       })
       .state('root.category', {
-        url: "category/:category",
+        url: "category/:cat",
+        views: {
+          'main@':{
+            templateUrl: '/category/category.html',
+            controller: 'CategoryController'
+          }
+        }
+      })
+      .state('root.category.subcat', {
+        url: "/:subcat",
         views: {
           'main@':{
             templateUrl: '/category/category.html',

@@ -12,14 +12,14 @@
       </md-list>
       <md-menu  md-offset="0 -7" md-position-mode="target-right target" ng-repeat="category in categories">
         <md-list-item aria-label="Open demo menu" class="md-clickable" >
-          <div ui-sref="root.category({category:category.name})" md-ink-ripple  flex="">{{category.name}}</div>
+          <div ui-sref="root.category({cat:category.name})" md-ink-ripple  flex="">{{category.name}}</div>
           <div class="md-icon-button" aria-label="More" ng-show="category.subcat.length>0"  ng-click="$mdOpenMenu($event)">
             <i class="material-icons">chevron_right</i>
           </div>
         </md-list-item>
         <md-menu-content width="3">
           <md-menu-item ng-repeat="sub in category.subcat">
-            <md-button ui-sref="root.category({category:sub})">
+            <md-button ui-sref="root.category.subcat({cat:category.name,subcat:sub})">
               <span md-menu-align-target>
               </span> {{sub}} </md-button>
           </md-menu-item>
@@ -44,7 +44,7 @@
         <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;&nbsp;
         <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;
         <i class="fa fa-google-plus" aria-hidden="true"></i>&nbsp;&nbsp;
-        <i ng-if="username"  ng-click="logout()" class="material-icons">power_settings_new</i>
+        <i ng-if="isAuthenticated" ng-click="logout()" class="material-icons">power_settings_new</i>
       </div>
     </md-toolbar>
     <md-content>

@@ -4,14 +4,14 @@
 
 angular.module('cms')
   .controller('admin.NewPostController',function ($scope,$http,categories) {
-    
+
     $scope.tags=[]
     $scope.categories = categories
 
     $scope.addPost=function (post,cat,subcat) {
-      post.categories = []
-      post.categories.push(cat)
-      post.categories.push(subcat)
+      post.categories = {}
+      post.categories.cat=cat
+      post.categories.subcat=subcat
       var d = new Date();
       post.creation_date=d.toISOString();
       post.tags = $scope.tags

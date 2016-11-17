@@ -9,8 +9,8 @@ angular.module('cms')
         return response.data
       })
     };
-    service.getCategoryPosts = function (category) {
-      return $http.get('/api/category/posts',{params:{category:category}}).then(function (response) {
+    service.getCategoryPosts = function (cat,subcat) {
+      return $http.get('/api/category/posts',{params:{cat:cat,subcat:subcat}}).then(function (response) {
         return response.data
       })
     };
