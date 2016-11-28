@@ -56,9 +56,6 @@ angular
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username
-      authService.auth().then(function(response){
-        $rootScope.isAuthenticated = response.data.isAuthenticated
-      })
     });
   }])
   .config(function($sceProvider) {
