@@ -7,14 +7,12 @@ angular.module('routes')
         resolve: {
           checklogin: function (authService,$state,$rootScope) {
             authService.auth().then(function(response){
-                $rootScope.isAuthenticated = response.data.isAuthenticated
-                if(!response.data.isAuthenticated){$state.go('login')}
-              },
-              function (err) {
-                console.log(err)
-                $window.localStorage.clear();
-                $state.go('login')}
-            );
+              $rootScope.isAuthenticated = response.data.isAuthenticated
+              if(!response.data.isAuthenticated){$state.go('login')}
+              }
+            ).then(function(e) {
+              $state.go('login')
+            })
           },
           currentuser: function (userService) {
             return userService.currentUser()
@@ -75,6 +73,15 @@ angular.module('routes')
           'main@': {
             templateUrl: 'admin/ads/ads.html',
             controller: 'admin.AdsController'
+          }
+        }
+      })
+      .state('root.vm.editpost', {
+        url: "/post/edit/:id",
+        views: {
+          'main@': {
+            templateUrl: 'admin/editpost/edit-post.html',
+            controller: 'admin.EditPostController'
           }
         }
       })
