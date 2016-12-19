@@ -13,8 +13,6 @@ module.exports.createPost = function (req, res) {
 module.exports.editPost = function (req,res) {
   var condition = {_id : req.query.id};
   var update = {$set: req.body};
-  console.log(req.query)
-  console.log(req.body)
   Post.findOneAndUpdate(condition, update, function(err, result){
     if(err) { throw err; }
     else { res.send(result);}
