@@ -10,6 +10,10 @@ angular.module('routes')
               $rootScope.isAuthenticated = response.data.isAuthenticated
               if(!response.data.isAuthenticated){$state.go('login')}
               }
+            ,function(e){
+                console.log("token expired")
+                $state.go('login')
+              }
             );
           },
           currentuser: function (userService) {

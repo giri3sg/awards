@@ -1,0 +1,47 @@
+
+<div  layout="column" ng-cloak>
+  <md-content layout-padding>
+    <form name="projectForm">
+      <md-input-container class="md-block">
+        <label>Title</label>
+        <input required md-no-asterisk name="title" ng-model="post.title">
+        <div ng-messages="projectForm.title.$error">
+          <div ng-message="required">Idiot!! you forgot Title.</div>
+        </div>
+      </md-input-container>
+      <label>Description</label>
+      <md-input-container class="md-block">
+        <label></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="post.description"></textarea>
+      </md-input-container>
+      <md-card-content>
+        <md-card-title>Tags</md-card-title>
+        <md-chips ng-model="post.tags"
+                  placeholder="Type a tag and press enter" md-removable="true"
+                  md-enable-chip-edit="true">
+        </md-chips>
+      </md-card-content>
+      <br>
+
+      current categories:
+      {{post.categories.cat}} || {{post.categories.subcat}}
+      <br>
+      <md-card-content>
+        <div layout="row" layout-align="space-between center">
+          <div><span>Change Categories</span></div>
+          <div >
+            <md-select ng-model="selectedcat" placeholder="Select Category">
+              <md-option ng-value="category" ng-repeat="category in categories track by $index" ng-init="selectedcat=categories[0]">{{category.name}}</md-option>
+            </md-select>
+          </div>
+          <div ng-show="selectedcat">
+            <md-select ng-model="selectedsub" placeholder="Select Sub Category[optional]">
+              <md-option ng-value="s" ng-repeat="s in selectedcat.subcat track by $index">{{s}}</md-option>
+            </md-select>
+          </div>
+        </div>
+      </md-card-content>
+      <md-button class="md-raised md-primary" ng-click="addPost(post,selectedcat.name,selectedsub)">Post</md-button>
+    </form>
+  </md-content>
+</div>

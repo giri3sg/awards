@@ -41,7 +41,7 @@ angular
       else { console.log("something is wrong ")}
     }
     return service
-  }]).run(['$http','$window','$rootScope','authService', function($http,$window,$rootScope,authService) {
+  }]).run(['$http','$window','$rootScope', function($http,$window,$rootScope) {
     $rootScope.tinymceOptions = {
       theme: "modern",
       plugins: [
@@ -51,7 +51,7 @@ angular
       ],
       toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
       image_advtab: true,
-      min_height: 300
+      min_height: 100
     };
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;

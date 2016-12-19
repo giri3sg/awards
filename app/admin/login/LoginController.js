@@ -21,7 +21,7 @@ angular.module('cms')
             $window.localStorage.username=$scope.user.username;
             $rootScope.isAuthenticated=response.data.isAuthenticated
             if(response.data.isAuthenticated==true){
-              $state.go('root.vm.dashboard')
+              $state.go('root')
             }
             else{
               $scope.error=response.data
