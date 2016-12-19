@@ -35,6 +35,12 @@ angular.module('cms')
         return response.data
       })
     }
+    service.editPost = function (data,id) {
+      return $http.post('/api/post/edit',data,{params:{id:id}}).then(function (response) {
+        return response.data
+      })
+
+    }
     return service
   });
 
