@@ -41,7 +41,7 @@ angular
       else { console.log("something is wrong ")}
     }
     return service
-  }]).run(['$http','$window','$rootScope', function($http,$window,$rootScope) {
+  }]).run(['$http','$window','$rootScope', 'authService',function($http,$window,$rootScope,authService) {
     $rootScope.tinymceOptions = {
       theme: "modern",
       plugins: [
@@ -53,9 +53,15 @@ angular
       image_advtab: true,
       min_height: 100
     };
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+    $rootScope.$on('$stateChangeStart', function () {
+      // adding the token to the http request header field autherization
       $http.defaults.headers.common['Authorization'] =  'Bearer ' + $window.localStorage.token;
       $rootScope.username=$window.localStorage.username
+
+      //checking if the user is admin or user
+      authService.auth().then(function(response) {
+        $rootScope.isAuthenticated = true
+      })
     });
   }])
   .config(function($sceProvider) {

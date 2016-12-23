@@ -6,7 +6,7 @@
           <span>{{post.title}} <small><span class="label label-default">{{post.creation_date | date:'medium'}}</span></small>
           </span>
           <span flex></span>
-          <md-button class="md-icon-button" aria-label="edit" ui-sref="root.vm.editpost({id:id})">
+          <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ui-sref="root.vm.editpost({id:id})">
             <i class="material-icons">mode_edit</i>
           </md-button>
         </div>

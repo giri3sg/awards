@@ -29,13 +29,6 @@ angular.module('cms')
         "link" :"root.vm.newpost"
       }
     ];
-    service.getMenu = function () {
-      var menu = publicMenu
-      if($rootScope.isAuthenticated){
-        menu = menu.concat(adminMenu)
-      }
-      return menu
-    }
     return service
   }]);
 
