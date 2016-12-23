@@ -4,6 +4,7 @@
 angular.module('cms')
   .controller('CategoryController',["$scope","$stateParams","PostsService",function($scope,$stateParams,PostsService){
     $scope.category = $stateParams.cat
+    $scope.subcategory = $stateParams.subcat
     PostsService.getCategoryPosts($stateParams.cat,$stateParams.subcat).then(function (response) {
       $scope.posts = response
     })
