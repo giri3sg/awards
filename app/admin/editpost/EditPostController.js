@@ -9,8 +9,10 @@ angular.module('cms')
       $scope.selectedsub = subcat
     }
     $scope.addPost=function (post,cat,subcat){
-      post.categories.cat=cat
-      post.categories.subcat=subcat
+      if (cat != undefined)
+        post.categories.cat=cat
+      if (subcat != undefined)
+        post.categories.subcat=subcat
       PostsService.editPost(post,$stateParams.id).then(function(response){
       })
     }

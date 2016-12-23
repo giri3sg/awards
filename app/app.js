@@ -60,7 +60,7 @@ angular
 
       //checking if the user is admin or user
       authService.auth().then(function(response) {
-        $rootScope.isAuthenticated = true
+        $rootScope.isAuthenticated = response.data.isAuthenticated
       })
     });
   }])
