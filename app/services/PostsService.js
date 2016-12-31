@@ -29,6 +29,11 @@ angular.module('cms')
         return response.data
       })
     }
+    service.deletePost = function (id) {
+      return $http.post('/api/post/delete',{id:id}).then(function(response){
+        console.log("delete successfull")
+      })
+    }
     
     service.getSettings = function () {
       return $http.get("/api/settings/categories").then(function (response) {

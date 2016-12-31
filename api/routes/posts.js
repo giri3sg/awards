@@ -18,6 +18,13 @@ module.exports.editPost = function (req,res) {
     else { res.send(result);}
   });
 }
+module.exports.deletePost = function (req,res) {
+  var condition = {_id : req.body.id};
+  Post.remove(condition, function(err, result){
+    if(err) { throw err; }
+    else { res.send(result);}
+  });
+}
 
 module.exports.postList = function (req,res) {
   Post.find(function (err,result) {

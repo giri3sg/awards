@@ -1,4 +1,4 @@
-<md-content flex="">
+<md-content ng-show="!success" flex="">
   <md-card>
     <div>
       <md-toolbar layout="row" layout-align="center center">
@@ -8,6 +8,9 @@
           <span flex></span>
           <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ui-sref="root.vm.editpost({id:id})">
             <i class="material-icons">mode_edit</i>
+          </md-button>
+          <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ng-click="showConfirm($event,id)">
+            <i class="material-icons">clear</i>
           </md-button>
         </div>
       </md-toolbar>
@@ -23,3 +26,7 @@
     </div>
   </md-card>
 </md-content>
+
+<div ng-show="success" layout="row" layout-align="center center" style="margin-top: 40%">
+  <h3> post deleted successfully!</h3>
+</div>

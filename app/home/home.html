@@ -1,4 +1,4 @@
-<md-content flex="" layout-padding="">
+<md-content flex="">
   <div layout="column" layout-align="top center">
     <div>
 
@@ -6,19 +6,31 @@
   </div>
   <h2>Recent Posts</h2>
   <md-card ng-repeat="post in posts | orderBy:'-creation_date'" >
-    <div >
-      <h3><a ui-sref="root.post({title: post.urlTitle,id:post._id})">{{post.title}}</a>
-        <small>
+    <md-toolbar layout="row" layout-align="center center">
+      <div  class="md-toolbar-tools">
+        <span><a ui-sref="root.post({title: post.urlTitle,id:post._id})">{{post.title}}</a></span>
+        <h5>
           <section layout="row" layout-xs="column"  class="tags">
-            <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
+            <!--<span class="label label-default">{{post.creation_date | date:'medium'}}</span>-->
+            <span  ng-repeat="tag in post.tags" class="label label-success"><a ui-sref="root.tag({tag:tag})">{{tag}}</a></span>
+          </section>
+        </h5>
+        <span flex></span>
+        <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ng-click="showConfirm($event,post._id)">
+          <i class="material-icons">clear</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <!--<md-content layout-padding="">
+      <section layout="row" layout-xs="column"  class="tags">
+        <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
             <span  ng-repeat="tag in post.tags" class="label label-success">
               <a ui-sref="root.tag({tag:tag})">{{tag}}</a>
             </span>
-          </section>
-        </small>
-      </h3>
-      <br/>
-    </div>
+      </section>
+      <br>
+    </md-content>-->
   </md-card>
 
 </md-content>

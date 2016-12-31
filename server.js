@@ -37,6 +37,7 @@ app.post('/api/auth',auth.authenticate);
 //posts
 app.post('/api/post',post.createPost)
 app.post('/api/post/edit',post.editPost)
+app.post('/api/post/delete',post.deletePost)
 app.get('/api/post',post.getPost)
 app.get('/api/post/list',post.postList)
 app.get('/api/category/posts',post.postListByCategory)
