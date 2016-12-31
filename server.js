@@ -50,6 +50,7 @@ app.get('/api/settings/categories',settings.get);
 app.all('/*', function(req, res) {
   res.sendfile(__dirname + '/app/index.html');
 });
+app.use(express.static(__dirname + '/app'));
 // starting the server
 app.listen(3000);
 console.log("Server running on port 3000");
