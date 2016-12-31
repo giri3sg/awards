@@ -41,7 +41,7 @@ angular
       else { console.log("something is wrong ")}
     }
     return service
-  }]).run(['$http','$window','$rootScope', 'authService',function($http,$window,$rootScope,authService) {
+  }]).run(['$http','$state','$window','$rootScope', 'authService',function($http,$state,$window,$rootScope,authService) {
     $rootScope.tinymceOptions = {
       theme: "modern",
       plugins: [
@@ -59,9 +59,14 @@ angular
       $rootScope.username=$window.localStorage.username
 
       //checking if the user is admin or user
-      authService.auth().then(function(response) {
-        $rootScope.isAuthenticated = response.data.isAuthenticated
-      })
+      authService.auth().then( function(response) {
+          $rootScope.isAuthenticated = response.data.isAuthenticated
+        }
+        ,function(e){
+          console.log("token expired")
+          $state.go('login')
+        }
+      );
     });
   }])
   .config(function($sceProvider) {

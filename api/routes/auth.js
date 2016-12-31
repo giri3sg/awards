@@ -55,7 +55,7 @@ module.exports.authenticate = function (req,res) {
       var token = bearer[1];
       jwt.verify(token, secret, function (err, decoded) {
         if (err) {
-          res.json(403, {msg: "invalid token"});
+          res.json(403, {msg: err});
         }
         else if (decoded.username == req.body.username) {
           res.json({token: token, isAuthenticated: true})
