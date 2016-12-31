@@ -2,7 +2,7 @@
  * Created by Smurf on 11/6/2016.
  */
 angular.module('cms')
-  .service('MenuService',['$http','$rootScope','authService',function($http,$rootScope,authService){
+  .service('MenuService',function(){
     var service = {};
 
     service.publicMenu = [
@@ -30,5 +30,5 @@ angular.module('cms')
       }
     ];
     return service
-  }]);
+  });
 

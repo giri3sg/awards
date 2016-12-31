@@ -1,5 +1,5 @@
 
-<div  layout="column" ng-cloak>
+<div ng-show="!success" layout="column" ng-cloak>
   <md-content layout-padding>
     <form name="projectForm">
       <md-input-container class="md-block">
@@ -37,7 +37,11 @@
           </div>
         </div>
       </md-card-content>
-      <md-button class="md-raised md-primary" ng-click="addPost(post,cat.name,selectedSub)">Post</md-button>
+      <md-button class="md-raised md-primary" ng-click="createPost(post,cat.name,selectedSub)">Post</md-button>
     </form>
   </md-content>
+</div>
+
+<div ng-show="success" layout="row" layout-align="center center" style="margin-top: 40%">
+  <h3> created new post successfully!</h3>
 </div>

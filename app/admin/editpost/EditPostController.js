@@ -14,9 +14,12 @@ angular.module('cms')
       if (subcat != undefined)
         post.categories.subcat=subcat
       PostsService.editPost(post,$stateParams.id).then(function(response){
+        $scope.success=true
       })
     }
     PostsService.getPostById($stateParams.id).then(function(response){
+      if(response.categories == undefined)
+        response.categories={}
       $scope.post = response
       initialize(response.categories.cat,response.categories.subcat)
     })
