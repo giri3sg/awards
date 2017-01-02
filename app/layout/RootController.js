@@ -2,8 +2,8 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('RootController',['$rootScope','$scope','$timeout','$mdSidenav','$state','$window','MenuService','categories',
-      function($rootScope,$scope, $timeout, $mdSidenav,$state,$window,MenuService,categories){
+  .controller('RootController',['$mdMedia','$rootScope','$scope','$timeout','$mdSidenav','$state','$window','MenuService','categories',
+      function($mdMedia,$rootScope,$scope, $timeout, $mdSidenav,$state,$window,MenuService,categories){
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.logout=function () {
       $rootScope.username = undefined;
@@ -18,7 +18,10 @@ angular.module('cms')
 
     };
 
-
+    $scope.$watch(function() { return $mdMedia('gt-sm'); }, function(big) {
+      $rootScope.largeScreen = big;
+    });
+    
     $scope.publicMenu = MenuService.publicMenu
 
     $scope.adminMenu = MenuService.adminMenu
