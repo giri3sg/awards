@@ -2,8 +2,14 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('PostController',["$scope","$stateParams","PostsService",'$mdDialog',function($scope,$stateParams,PostsService,$mdDialog){
+  .controller('PostController',["$timeout","$scope","$stateParams","PostsService",'$mdDialog',
+    function($timeout,$scope,$stateParams,PostsService,$mdDialog){
     $scope.id = $stateParams.id
+
+    $timeout(function() {
+      $.ajax({ url: 'http://platform.twitter.com/widgets.js', dataType: 'script', cache:true});
+    }, 1000);
+
     PostsService.getPostById($stateParams.id).then(function(response){
       $scope.post = response
     })
