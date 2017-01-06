@@ -2,7 +2,7 @@
  * Created by Smurf on 11/14/2016.
  */
 angular.module('cms')
-  .controller('admin.EditPostController',function (PostsService,$stateParams,$scope,settings) {
+  .controller('admin.EditPostController',['PostsService','$stateParams','$scope','settings',function (PostsService,$stateParams,$scope,settings) {
     $scope.categories=settings.categories
     initialize = function(cat,subcat){
       $scope.selectedcat = cat
@@ -24,5 +24,5 @@ angular.module('cms')
       initialize(response.categories.cat,response.categories.subcat)
     })
 
-  })
+  }])
   

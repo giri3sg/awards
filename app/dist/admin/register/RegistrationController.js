@@ -2,7 +2,7 @@
  * Created by Girish on 5/16/2016.
  */
 angular.module('cms')
-  .controller('RegistrationController',function($scope,$http,md5){
+  .controller('RegistrationController',['$scope','$http','md5',function($scope,$http,md5){
     
     $scope.validate = function (user) {
       if(!user){return true}
@@ -35,5 +35,5 @@ angular.module('cms')
         );
     
     }
-  });
+  }]);
 
