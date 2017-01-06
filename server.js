@@ -24,6 +24,7 @@ app.use(express.static('app'));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('X-FRAME-OPTIONS', 'ALLOWALL');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
   next();
