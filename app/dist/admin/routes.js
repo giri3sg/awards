@@ -28,7 +28,7 @@ angular.module('routes')
         url: "/vm/register",
         views: {
           'content@':{
-            templateUrl: 'admin/register/register.html',
+            templateUrl: 'dist/admin/register/register.html',
             controller: 'RegistrationController'
           }
         }
@@ -37,7 +37,7 @@ angular.module('routes')
         url: "/vm/login",
         views: {
           'content@': {
-            templateUrl: 'admin/login/login.html',
+            templateUrl: 'dist/admin/login/login.html',
             controller: 'LoginController'
           }
         }
@@ -46,7 +46,7 @@ angular.module('routes')
         url: "/dashboard",
         views: {
           'main@': {
-            templateUrl: 'admin/dashboard/dashboard.html',
+            templateUrl: 'dist/admin/dashboard/dashboard.html',
             controller: 'admin.DashboardController'
           }
         }
@@ -55,7 +55,7 @@ angular.module('routes')
         url: "/newpost",
         views: {
           'main@': {
-            templateUrl: 'admin/newpost/new-post.html',
+            templateUrl: 'dist/admin/newpost/new-post.html',
             controller: 'admin.NewPostController'
           }
         }
@@ -64,7 +64,7 @@ angular.module('routes')
         url: "/settings",
         views: {
           'main@': {
-            templateUrl: 'admin/settings/settings.html',
+            templateUrl: 'dist/admin/settings/settings.html',
             controller: 'admin.SettingsController'
           }
         }
@@ -73,7 +73,7 @@ angular.module('routes')
         url: "/ads",
         views: {
           'main@': {
-            templateUrl: 'admin/ads/ads.html',
+            templateUrl: 'dist/admin/ads/ads.html',
             controller: 'admin.AdsController'
           }
         }
@@ -82,7 +82,7 @@ angular.module('routes')
         url: "/post/edit/:id",
         views: {
           'main@': {
-            templateUrl: 'admin/editpost/edit-post.html',
+            templateUrl: 'dist/admin/editpost/edit-post.html',
             controller: 'admin.EditPostController'
           }
         }

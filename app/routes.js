@@ -7,15 +7,15 @@ angular.module('routes')
         url:"/",
         views: {
           'content@':{
-            templateUrl: 'layout/content.html',
+            templateUrl: 'dist/layout/content.html',
             controller:'RootController'
           } ,
           'sidenav@':{
-            templateUrl: 'layout/sidenav.html',
+            templateUrl: 'dist/layout/sidenav.html',
             controller:'SideNavController'
           },
           'main@':{
-            templateUrl: 'home/home.html',
+            templateUrl: 'dist/home/home.html',
             controller: 'HomeController'
           }
         },
@@ -31,7 +31,7 @@ angular.module('routes')
         url: "404",
         views: {
           'main@':{
-            templateUrl: '/404.html'
+            templateUrl: 'dist/404.html'
           }
         }
       })
@@ -39,7 +39,7 @@ angular.module('routes')
         url: "post/:title?:id",
         views: {
           'main@':{
-            templateUrl: '/post/post.html',
+            templateUrl: 'dist/post/post.html',
             controller: 'PostController'
           }
         }
@@ -48,7 +48,7 @@ angular.module('routes')
         url: "category/:cat",
         views: {
           'main@':{
-            templateUrl: '/category/category.html',
+            templateUrl: 'dist/category/category.html',
             controller: 'CategoryController'
           }
         }
@@ -57,7 +57,7 @@ angular.module('routes')
         url: "/:subcat",
         views: {
           'main@':{
-            templateUrl: '/category/category.html',
+            templateUrl: 'dist/category/category.html',
             controller: 'CategoryController'
           }
         }
@@ -66,7 +66,7 @@ angular.module('routes')
         url: "tag/:tag",
         views: {
           'main@':{
-            templateUrl: '/tag/tag.html',
+            templateUrl: 'dist/tag/tag.html',
             controller: 'TagController'
           }
         }
