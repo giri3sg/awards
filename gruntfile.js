@@ -27,43 +27,46 @@ module.exports = function (grunt) {
           "app/lib/tinymce/tinymce.min.js",
           "app/lib/angular-ui-tinymce/dist/tinymce.min.js"],
         dest: 'app/lib.min.js'
+      },
+      css:{
+        src : [
+          "app/lib/angular-material/angular-material.min.css",
+          "app/lib/angular-bootstrap/ui-bootstrap-csp.css",
+          "app/lib/bootstrap/dist/css/bootstrap.min.css",
+          "app/dist/styles/main.css"
+        ],
+        dest: 'app/built.css'
       }
     },
-/*    uglify:{
-       files: {
-         src: 'app/built.js',
-         dest: 'app/built-min.js'
-       }
-     }*/
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'app/',
+          src: ['built.css'],
+          dest: 'app/',
+          ext: '.min.css'
+        }]
+      }
+    },
+    compress: {
+      main: {
+        options: {
+          mode: 'gzip'
+        },
+        expand: true,
+        cwd: 'assets/',
+        src: ['**/*'],
+        dest: 'public/'
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat')
-  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
 
-  grunt.registerTask('default',['concat'])
+  grunt.registerTask('default',['concat','cssmin'])
 
 }
-
-
-
-
-
-
-
-/*
-uglify:{
-  options:{
-    manage:false
-  },
-  my_target:{
-    files:[{
-      expand:true,
-      cwd: 'app/',
-      src: '**!/!*.js',
-      dest: 'app/'
-    }]
-  }
-}*/
-  
   
 
