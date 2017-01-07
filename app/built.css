@@ -168,3 +168,10 @@ a {
 .large-font{
   font-size:large;
 }
+
+
+/* post page css*/
+
+.post-body p img {
+  margin:15px
+}
