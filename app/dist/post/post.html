@@ -3,7 +3,7 @@
     <div>
       <md-toolbar layout="row" layout-align="center center">
         <div  class="md-toolbar-tools">
-          <span>{{post.title}} <small><span class="label label-default">{{post.creation_date | date:'medium'}}</span></small>
+          <span>{{post.title}} <small><span class="label label-default"></span></small>
           </span>
           <span flex></span>
           <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ui-sref="root.vm.editpost({id:id})">
