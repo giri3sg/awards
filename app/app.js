@@ -25,6 +25,10 @@ angular
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')
+      .accentPalette('red', {
+        'default': '800' // use shade 200 for default, and keep all other shades the same
+      });
+
   }).service('authService',['$http','$window',function($http,$window) {
     var service = {}
     service.auth = function () {

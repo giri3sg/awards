@@ -1,20 +1,22 @@
 <md-content flex="">
-  <div layout="column" layout-align="top center">
-    <div>
-
-    </div>
+  <a>
+    <a href="https://awardsfullshow.com/post/74th-Annual-Golden-Globe-Awards-2017-Live-Stream-Red-Carpet--%23GlodenGlobes?id=586a2b16a10de3542837e229">
+    <md-card>
+      <md-toolbar  class="md-accent" layout="row" layout-align="center center">
+        <div class="md-toolbar-tools">
+          <span ng-class="largeScreen ? 'large-font' : 'small-font'">
+            74th Annual Golden Globe Awards 2017 Live Stream Red Carpet
+          </span>
+        </div>
+      </md-toolbar>
+    </md-card>
+    </a>
   </div>
   <h2>Recent Posts</h2>
   <md-card ng-repeat="post in posts | orderBy:'-creation_date'" >
     <md-toolbar layout="row" layout-align="center center">
       <div  class="md-toolbar-tools">
         <span ng-class="largeScreen ? 'large-font' : 'small-font'"><a ui-sref="root.post({title: post.urlTitle,id:post._id})">{{post.title}}</a></span>
-        <h5>
-<!--          <section layout="row" layout-xs="column"  class="tags">
-            &lt;!&ndash;<span class="label label-default">{{post.creation_date | date:'medium'}}</span>&ndash;&gt;
-            <span  ng-repeat="tag in post.tags" class="label label-success"><a ui-sref="root.tag({tag:tag})">{{tag}}</a></span>
-          </section>-->
-        </h5>
         <span flex></span>
         <md-button ng-if="isAuthenticated" class="md-icon-button" aria-label="edit" ng-click="showConfirm($event,post._id)">
           <i class="material-icons">clear</i>
@@ -22,15 +24,6 @@
       </div>
     </md-toolbar>
 
-    <!--<md-content layout-padding="">
-      <section layout="row" layout-xs="column"  class="tags">
-        <span class="label label-default">{{post.creation_date | date:'medium'}}</span>
-            <span  ng-repeat="tag in post.tags" class="label label-success">
-              <a ui-sref="root.tag({tag:tag})">{{tag}}</a>
-            </span>
-      </section>
-      <br>
-    </md-content>-->
   </md-card>
 
 </md-content>
