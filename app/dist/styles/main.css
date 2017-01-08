@@ -40,3 +40,11 @@ a {
 .large-font{
   font-size:large;
 }
+
+
+/* post page css*/
+
+.post-body p img {
+  margin-right:15px;
+  margin-bottom:15px;
+}
