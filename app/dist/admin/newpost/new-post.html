@@ -9,10 +9,20 @@
           <div ng-message="required">Idiot!! you forgot Title.</div>
         </div>
       </md-input-container>
-      <label>Description</label>
+      <label>Top Description</label>
       <md-input-container class="md-block">
         <label></label>
         <textarea ui-tinymce="tinymceOptions" ng-model="post.description"></textarea>
+      </md-input-container>
+      <label>Embed video</label>
+      <md-input-container class="md-block">
+        <label></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="post.embed"></textarea>
+      </md-input-container>
+      <label>Bottom Description</label>
+      <md-input-container class="md-block">
+        <label></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="post.body"></textarea>
       </md-input-container>
       <md-card-content>
         <md-card-title>Tags</md-card-title>
