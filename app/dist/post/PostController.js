@@ -7,7 +7,7 @@ angular.module('cms')
     $scope.id = $stateParams.id
 
     $timeout(function() {
-      $.ajax({ url: 'lib/twitter/widgets.js', cache:true});
+      $.ajax({ url: 'dist/data/twitter/widgets.js', cache:true});
     }, 1000);
 
     PostsService.getPostById($stateParams.id).then(function(response){
