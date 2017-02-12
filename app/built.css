@@ -129,6 +129,9 @@
 body{
   background: white;
 }
+md-content{
+  background:white;
+}
 .login-container{
   position: absolute;
   top: 0;
