@@ -1,1 +1,1 @@
-A Content Management System (CMS) webproject developed in Angular
+A Content Management System (CMS) developed in Angular
